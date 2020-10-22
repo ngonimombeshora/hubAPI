@@ -1,14 +1,14 @@
 from django.db import models
 
-# Create your models here. example model to work with
+# More models can be created depending on the what the user requires.
 
 
 class Device(models.Model):
-    name = models.CharField(max_length=100, blank=False, default='device name')
-    category = models.CharField(max_length=100, blank=False, default='sensor')
-    location = models.CharField(max_length=100, blank=True, default='')
-    device_id = models.CharField(max_length=100, blank=True, default='1')
-    status = models.CharField(max_length=100, blank=True, default='')
+    name = models.CharField(max_length=20, blank=False, default='device name')
+    category = models.CharField(max_length=10, blank=False, default='sensor')
+    location = models.CharField(max_length=30, blank=False, default='')
+    status = models.CharField(max_length=10, blank=False, default='')
+    reading = models.CharField(max_length=10, blank=True, default='')
     created = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(
         'auth.User', related_name='devices', on_delete=models.CASCADE, default="not set")
